@@ -28,3 +28,7 @@ ul {
 .content {
   display: flex;
 }
+
+.container {
+  margin-left: 5%;
+}

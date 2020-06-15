@@ -10,7 +10,7 @@ function App() {
     <div>
       <Header />
       <div className="content">
-        <div className="ui container">
+        <div className="container">
           <Board />
         </div>
       </div>

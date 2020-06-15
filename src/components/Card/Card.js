@@ -1,20 +1,30 @@
 import React from "react";
-import { Card as SemanticCard } from "semantic-ui-react";
+import { Card as SemanticCard, Label } from "semantic-ui-react";
+import "./Card.scss";
 
-const Card = () => (
-  <SemanticCard>
-    <SemanticCard.Content header="Study React" />
-    <SemanticCard.Content
-      description={
-        "Finish doing a frontend application using React and Semantic-UI."
-      }
-    />
+const Card = ({ data }) => (
+  <SemanticCard className="task-card" raised>
+    <SemanticCard.Meta>
+      {data.labels.map((label) => (
+        <Label color={label} key={label} />
+      ))}
+    </SemanticCard.Meta>
+    <SemanticCard.Content header={data.task} className="card-header" />
+    <SemanticCard.Content description={data.content} />
     <SemanticCard.Content extra>
-      <img
-        src="https://api.adorable.io/avatars/40/laf.png"
-        className="ui mini middle aligned image"
-        alt="avatar"
-      />
+      {data.user ? (
+        <img
+          src={data.user}
+          className="ui mini middle aligned image"
+          alt="avatar"
+        />
+      ) : (
+        <img
+          src="https://api.adorable.io/avatars/40/abde.png"
+          className="ui mini middle aligned image"
+          alt="avatar"
+        />
+      )}
     </SemanticCard.Content>
   </SemanticCard>
 );
