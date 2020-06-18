@@ -3,7 +3,7 @@ import Card from "../Card/Card";
 import { Divider } from "semantic-ui-react";
 const List = ({ data }) => {
   return (
-    <div className={`card-list ${data.done}`} done={data.done}>
+    <div className={`card-list ${data.done}`}>
       <header>
         <h3>
           {data.title}
@@ -17,8 +17,8 @@ const List = ({ data }) => {
       </header>
       <Divider></Divider>
       <ul>
-        {data.cards.map((card) => (
-          <Card key={card.id} data={card} />
+        {data.cards.map((card, index) => (
+          <Card key={card.id} index={index} data={card} />
         ))}
       </ul>
     </div>

@@ -12,7 +12,7 @@ const Board = () => {
       <Grid.Row>
         {lists.map((list) => (
           <Grid.Column key={list.id}>
-            <List key={list.id} data={list} done={list.done} />
+            <List key={list.id} data={list} />
           </Grid.Column>
         ))}
         <Grid.Column>

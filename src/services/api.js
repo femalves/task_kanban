@@ -92,7 +92,7 @@ export function loadLists() {
       id: "jfiff0288347",
       title: "Finished",
       creatable: false,
-      done: "true",
+      done: "done",
       cards: [
         {
           id: 10,
