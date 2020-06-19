@@ -16,7 +16,7 @@ const Board = () => {
           </Grid.Column>
         ))}
         <Grid.Column>
-          <CustomButton></CustomButton>
+          <CustomButton content="New List" icon="add"></CustomButton>
         </Grid.Column>
       </Grid.Row>
     </Grid>

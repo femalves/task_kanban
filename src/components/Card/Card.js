@@ -53,13 +53,19 @@ const Card = ({ data, index }) => {
         raised
       >
         <SemanticCard.Meta>
-          {data.labels.map((label) => (
-            <Label
-              color={label}
-              key={label}
-              style={isDragging ? { opacity: 0 } : null}
-            />
-          ))}
+          <div className="modify">
+            <i className="trash small red icon"></i>
+            <i className="pencil small icon"></i>
+          </div>
+          <div className="labels">
+            {data.labels.map((label) => (
+              <Label
+                color={label}
+                key={label}
+                style={isDragging ? { opacity: 0 } : null}
+              />
+            ))}
+          </div>
         </SemanticCard.Meta>
         <SemanticCard.Content
           header={data.task}

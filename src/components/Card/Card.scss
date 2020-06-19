@@ -5,8 +5,22 @@
   .meta {
     display: flex;
     padding: 5px;
-    justify-content: flex-end;
+    justify-content: space-between;
+
+    .modify {
+      margin: 0;
+
+      i {
+        margin: 0;
+        padding: 0;
+        font-size: 1.2rem;
+        cursor: pointer;
+      }
+    }
+
+
   }
+
 
 
 }
