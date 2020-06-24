@@ -53,9 +53,9 @@ const Card = ({ data, index }) => {
         raised
       >
         <SemanticCard.Meta>
-          <div className="modify">
+          <div className="modify" style={isDragging ? { opacity: 0 } : null}>
             <i className="trash small red icon"></i>
-            <i className="pencil small icon"></i>
+            <i className="pencil small black icon"></i>
           </div>
           <div className="labels">
             {data.labels.map((label) => (

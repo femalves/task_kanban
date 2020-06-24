@@ -1,6 +1,9 @@
 const ListActionTypes = {
-  ADD_ITEM: "ADD_ITEM",
-  REMOVE_ITEM: "REMOVE_ITEM",
+  ADD_LIST: "ADD_LIST",
+  ADD_CARD: "ADD_CARD",
+  REMOVE_CARD: "REMOVE_CARD",
+  EDIT_LIST: "EDIT_LIST",
+  REMOVE_LIST: "REMOVE_LIST",
 };
 
 export default ListActionTypes;

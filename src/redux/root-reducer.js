@@ -1,3 +1,3 @@
 import { combineReducers } from "redux";
-import listReducer from "./list/list.reducer";
-export default combineReducers({ list: listReducer });
+import boardReducer from "./board/board.reducer";
+export default combineReducers({ board: boardReducer });

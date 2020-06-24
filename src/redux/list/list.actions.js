@@ -1,11 +1,32 @@
-import ListActionTypes from "./list.types";
+import {
+  ADD_LIST,
+  ADD_CARD,
+  REMOVE_CARD,
+  EDIT_LIST,
+  REMOVE_LIST,
+} from "./list.types";
 
-export const addItem = (item) => ({
-  type: ListActionTypes.ADD_ITEM,
-  payload: item,
+export const addList = (list) => ({
+  type: ADD_LIST,
+  payload: list,
 });
 
-export const removeItem = (item) => ({
-  type: ListActionTypes.REMOVE_ITEM,
-  payload: item,
+export const addCard = (card) => ({
+  type: ADD_CARD,
+  payload: card,
+});
+
+export const removeCard = (card) => ({
+  type: REMOVE_CARD,
+  payload: card,
+});
+
+export const editList = (list) => ({
+  type: EDIT_LIST,
+  payload: list,
+});
+
+export const removeList = (list) => ({
+  type: REMOVE_LIST,
+  payload: list,
 });
