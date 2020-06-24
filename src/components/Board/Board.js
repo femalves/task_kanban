@@ -2,6 +2,7 @@ import React from "react";
 
 import { connect } from "react-redux";
 import { Grid } from "semantic-ui-react";
+import {} from "redux-logger";
 
 import List from "../List/List";
 import CustomButton from "../CustomButton/CustomButton";
@@ -9,7 +10,7 @@ import "./Board.scss";
 
 class Board extends React.Component {
   render() {
-    const lists = this.props.board.lists;
+    const lists = this.props.board;
 
     return (
       <Grid
@@ -34,8 +35,10 @@ class Board extends React.Component {
   }
 }
 
-const mapStateToProps = (state) => ({
-  board: state.board,
-});
+function mapStateToProps(state) {
+  const props = { board: state.board.lists, list: state.list };
+  // console.log(props);
+  return props;
+}
 
 export default connect(mapStateToProps)(Board);

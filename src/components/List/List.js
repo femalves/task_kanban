@@ -2,6 +2,10 @@ import React from "react";
 import Card from "../Card/Card";
 import { Divider } from "semantic-ui-react";
 import "./List.scss";
+import { connect } from "react-redux";
+
+import { removeList } from "../../redux/board/board.actions";
+
 const List = ({ data }) => {
   return (
     <div className={`card-list`}>
@@ -9,7 +13,10 @@ const List = ({ data }) => {
         <h3 className="title">{data.title}</h3>
         <span className="modify">
           {data.creatable && <i className="plus large teal icon"></i>}
-          <i className="trash large red icon"></i>
+          <i
+            className="trash large red icon"
+            onClick={() => removeList(data)}
+          ></i>
           <i className="pencil large icon"></i>
         </span>
       </header>
@@ -23,4 +30,7 @@ const List = ({ data }) => {
   );
 };
 
-export default List;
+const mapDispatchToProps = (dispatch) => ({
+  removeList: (data) => dispatch(removeList(data)),
+});
+export default connect(null, mapDispatchToProps)(List);

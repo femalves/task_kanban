@@ -1,11 +1,10 @@
-import { ADD_LIST, REMOVE_LIST } from "./board.types";
+import BoardActionTypes from "./board.types";
 
-export const addList = (list) => ({
-  type: ADD_LIST,
-  payload: list,
-});
-
-export const removeList = (list) => ({
-  type: REMOVE_LIST,
-  payload: list,
-});
+export function addList(list) {
+  // console.log("addList", list);
+  return { type: BoardActionTypes.ADD_LIST, payload: list };
+}
+export function removeList(list) {
+  // console.log("removeList", list.id);
+  return { type: BoardActionTypes.REMOVE_LIST, payload: list };
+}

@@ -116,22 +116,4 @@ let board = [
   },
 ];
 
-export function loadLists() {
-  return board;
-}
-
-export function addList(list) {
-  return board;
-}
-
-export function deleteList(list) {
-  return board;
-}
-
-export function addCard(list) {
-  return board;
-}
-
-export function deleteCard(list) {
-  return board;
-}
+export default board;
