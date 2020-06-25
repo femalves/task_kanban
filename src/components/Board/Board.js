@@ -10,21 +10,21 @@ import "./Board.scss";
 
 class Board extends React.Component {
   render() {
-    const lists = this.props.board;
+    const board = this.props.board;
 
     return (
       <Grid
-        columns={lists.length <= 5 ? lists.length + 1 : lists.length}
+        columns={board.length <= 5 ? board.length + 1 : board.length}
         stackable
         divided
       >
         <Grid.Row>
-          {lists.map((list) => (
+          {board.map((list) => (
             <Grid.Column key={list.id}>
               <List key={list.id} data={list} />
             </Grid.Column>
           ))}
-          {lists.length < 6 ? (
+          {board.length < 6 ? (
             <Grid.Column>
               <CustomButton content="New List" icon="add"></CustomButton>
             </Grid.Column>
@@ -36,7 +36,7 @@ class Board extends React.Component {
 }
 
 function mapStateToProps(state) {
-  const props = { board: state.board.lists, list: state.list };
+  const props = { board: state.board.lists };
   // console.log(props);
   return props;
 }

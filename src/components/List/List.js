@@ -6,7 +6,7 @@ import { connect } from "react-redux";
 
 import { removeList } from "../../redux/board/board.actions";
 
-const List = ({ data }) => {
+const List = ({ data, removeList }) => {
   return (
     <div className={`card-list`}>
       <header>
@@ -30,7 +30,14 @@ const List = ({ data }) => {
   );
 };
 
+const mapStateToProps = (state) => ({ list: state.list });
+// function mapStateToProps(state) {
+//   const props = { lists: state.list };
+//   // console.log(props);
+//   return props;
+// }
 const mapDispatchToProps = (dispatch) => ({
-  removeList: (data) => dispatch(removeList(data)),
+  removeList: (list) => dispatch(removeList(list)), // <-- manually dispatches
 });
-export default connect(null, mapDispatchToProps)(List);
+
+export default connect(mapStateToProps, mapDispatchToProps)(List);

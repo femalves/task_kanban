@@ -5,6 +5,9 @@ export function addList(list) {
   return { type: BoardActionTypes.ADD_LIST, payload: list };
 }
 export function removeList(list) {
-  // console.log("removeList", list.id);
-  return { type: BoardActionTypes.REMOVE_LIST, payload: list };
+  console.log(list);
+  return {
+    type: BoardActionTypes.REMOVE_LIST,
+    payload: list,
+  };
 }
