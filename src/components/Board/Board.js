@@ -10,7 +10,7 @@ import "./Board.scss";
 
 class Board extends React.Component {
   render() {
-    const board = this.props.board;
+    const board = this.props.board.lists.lists;
 
     return (
       <Grid
@@ -36,8 +36,8 @@ class Board extends React.Component {
 }
 
 function mapStateToProps(state) {
-  const props = { board: state.board.lists };
-  // console.log(props);
+  const props = { board: state };
+
   return props;
 }
 

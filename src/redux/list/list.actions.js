@@ -1,25 +1,47 @@
-import ListActionTypes from "./list.types";
+import ListsActionTypes from "./list.types";
+
+// export function removeList(list) {
+//   console.log(list);
+//   return {
+//     type: ListsActionTypes.REMOVE_LIST,
+//     payload: list,
+//   };
+// }
+
+export const addList = (list) => ({
+  type: ListsActionTypes.ADD_LIST,
+  payload: list,
+});
+export const removeList = (list) => ({
+  type: ListsActionTypes.REMOVE_LIST,
+  payload: list,
+});
 
 export const addCard = (card) => ({
-  type: ListActionTypes.ADD_CARD,
+  type: ListsActionTypes.ADD_CARD,
   payload: card,
 });
 
 export const removeCard = (card) => ({
-  type: ListActionTypes.REMOVE_CARD,
+  type: ListsActionTypes.REMOVE_CARD,
   payload: card,
 });
 
 export const editList = (list) => ({
-  type: ListActionTypes.EDIT_LIST,
+  type: ListsActionTypes.EDIT_LIST,
   payload: list,
 });
 
 export const toggleAddListHidden = () => ({
-  type: ListActionTypes.TOGGLE_ADD_LIST_HIDDEN,
+  type: ListsActionTypes.TOGGLE_ADD_LIST_HIDDEN,
 });
 
 export const moveCard = (card) => ({
-  type: ListActionTypes.MOVE_CARD_SAME_LIST,
+  type: ListsActionTypes.MOVE_CARD_SAME_LIST,
+  payload: card,
+});
+
+export const moveCardDifferent = (card) => ({
+  type: ListsActionTypes.MOVE_CARD_DIFFERENT_LIST,
   payload: card,
 });

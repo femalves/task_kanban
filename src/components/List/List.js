@@ -4,9 +4,10 @@ import { Divider } from "semantic-ui-react";
 import "./List.scss";
 import { connect } from "react-redux";
 
-import { removeList } from "../../redux/board/board.actions";
+import { removeList } from "../../redux/list/list.actions";
 
 const List = ({ data, removeList }) => {
+  console.log("in list", data);
   return (
     <div className={`card-list`}>
       <header>
@@ -23,21 +24,15 @@ const List = ({ data, removeList }) => {
       <Divider></Divider>
       <ul>
         {data.cards.map((card, index) => (
-          <Card key={card.id} index={index} data={card} />
+          <Card key={card.id} index={index} card={card} list={data} />
         ))}
       </ul>
     </div>
   );
 };
 
-const mapStateToProps = (state) => ({ list: state.list });
-// function mapStateToProps(state) {
-//   const props = { lists: state.list };
-//   // console.log(props);
-//   return props;
-// }
 const mapDispatchToProps = (dispatch) => ({
   removeList: (list) => dispatch(removeList(list)), // <-- manually dispatches
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(List);
+export default connect(null, mapDispatchToProps)(List);

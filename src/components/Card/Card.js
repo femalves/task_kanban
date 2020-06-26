@@ -2,8 +2,9 @@ import React, { useRef } from "react";
 import { Card as SemanticCard, Label, Ref } from "semantic-ui-react";
 import "./Card.scss";
 import { useDrag, useDrop } from "react-dnd";
-
-const Card = ({ data, index }) => {
+import { connect } from "react-redux";
+import { removeCard } from "../../redux/list/list.actions";
+const Card = ({ card, index, list, removeCard }) => {
   const ref = useRef();
   const style = {
     cursor: "grabbing",
@@ -13,7 +14,7 @@ const Card = ({ data, index }) => {
   };
 
   const [{ isDragging }, dragRef] = useDrag({
-    item: { type: "CARD", id: data.id },
+    item: { type: "CARD", id: card.id },
     collect: (monitor) => ({
       isDragging: monitor.isDragging(),
     }),
@@ -54,11 +55,14 @@ const Card = ({ data, index }) => {
       >
         <SemanticCard.Meta>
           <div className="modify" style={isDragging ? { opacity: 0 } : null}>
-            <i className="trash small red icon"></i>
+            <i
+              className="trash small red icon"
+              onClick={() => removeCard({ card, list })}
+            ></i>
             <i className="pencil small black icon"></i>
           </div>
           <div className="labels">
-            {data.labels.map((label) => (
+            {card.labels.map((label) => (
               <Label
                 color={label}
                 key={label}
@@ -68,18 +72,18 @@ const Card = ({ data, index }) => {
           </div>
         </SemanticCard.Meta>
         <SemanticCard.Content
-          header={data.task}
+          header={card.task}
           className="card-header"
           style={isDragging ? { opacity: 0 } : null}
         />
         <SemanticCard.Content
-          description={data.content}
+          description={card.content}
           style={isDragging ? { opacity: 0 } : null}
         />
         <SemanticCard.Content style={isDragging ? { opacity: 0 } : null} extra>
-          {data.user ? (
+          {card.user ? (
             <img
-              src={data.user}
+              src={card.user}
               className="ui mini middle aligned image"
               alt="avatar"
             />
@@ -96,4 +100,8 @@ const Card = ({ data, index }) => {
   );
 };
 
-export default Card;
+const mapDispatchToProps = (dispatch) => ({
+  removeCard: (list) => dispatch(removeCard(list)), // <-- manually dispatches
+});
+
+export default connect(null, mapDispatchToProps)(Card);

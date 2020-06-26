@@ -1,13 +1,34 @@
-import ListActionTypes from "./list.types";
+import ListsActionTypes from "./list.types";
+import board from "../../services/api";
 
-const INITIAL_STATE = {
-  hidden: true,
-  list: [{ id: "", title: "", creatable: false, done: false, cards: [] }],
+const initialState = {
+  lists: board,
 };
 
-const listReducer = (state = INITIAL_STATE, action) => {
+const ListsReducer = (state = initialState, action) => {
   switch (action.type) {
-    case ListActionTypes.TOGGLE_ADD_LIST_HIDDEN:
+    case ListsActionTypes.REMOVE_LIST:
+      return {
+        ...state,
+        lists: state.lists.filter((list) => list.id !== action.payload.id),
+      };
+    case ListsActionTypes.REMOVE_CARD:
+      let cardID = action.payload.card.id;
+      let list = action.payload.list;
+      let listID = list.id;
+
+      let newCards = list.cards.filter((card) => card.id !== cardID);
+      let newList = { ...list, cards: newCards };
+
+      let new_lists = state.lists.map((list) => {
+        if (list.id === listID) {
+          list = newList;
+        }
+        return list;
+      });
+      return { ...state, lists: new_lists };
+
+    case ListsActionTypes.TOGGLE_ADD_LIST_HIDDEN:
       return {
         ...state,
         hidden: !state.hidden,
@@ -17,4 +38,4 @@ const listReducer = (state = INITIAL_STATE, action) => {
   }
 };
 
-export default listReducer;
+export default ListsReducer;

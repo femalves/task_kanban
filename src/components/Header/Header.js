@@ -3,7 +3,7 @@ import React from "react";
 import { Icon, Menu } from "semantic-ui-react";
 
 class Header extends React.Component {
-  state = { activeItem: "gamepad" };
+  state = { activeItem: "tasks" };
 
   handleItemClick = (e, { name }) => this.setState({ activeItem: name });
 

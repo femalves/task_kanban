@@ -1,10 +1,12 @@
-const ListActionTypes = {
+const ListsActionTypes = {
   ADD_LIST: "ADD_LIST",
+  REMOVE_LIST: "REMOVE_LIST",
   ADD_CARD: "ADD_CARD",
   REMOVE_CARD: "REMOVE_CARD",
   EDIT_LIST: "EDIT_LIST",
   TOGGLE_ADD_LIST_HIDDEN: "TOGGLE_ADD_LIST_HIDDEN",
   MOVE_CARD_SAME_LIST: "MOVE_CARD_SAME_LIST",
+  MOVE_CARD_DIFFERENT_LIST: "MOVE_CARD_DIFFERENT_LIST",
 };
 
-export default ListActionTypes;
+export default ListsActionTypes;
